@@ -1,0 +1,47 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        kotlin_version = '1.2.41'
+        androidx = '1.0.0-alpha3'
+        constraint_layout = '1.1.1'
+        arch_comp = '2.0.0-alpha1'
+
+        junit = '4.12'
+        mockito = '2.11.0'
+        junit_runner = '1.1.0-alpha3'
+        espresso = '3.1.0-alpha3'
+
+        android_plugin = '3.2.0-alpha17'
+        compile_sdk = 28
+        min_sdk = 19
+        target_sdk = compile_sdk
+    }
+
+    repositories {
+        mavenCentral()
+        google()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$android_plugin"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:4.0.0"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
