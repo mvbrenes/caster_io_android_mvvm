@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity(), SaveDialogFragment.Callback {
     private lateinit var binding: ActivityMainBinding
 
     override fun onSaveTip(name: String) {
+        binding.vm?.saveCurrentTip(name)
         Snackbar.make(binding.root, "Saved $name", Snackbar.LENGTH_SHORT).show()
     }
 

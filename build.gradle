@@ -2,7 +2,7 @@
 
 buildscript {
     ext {
-        kotlin_version = '1.2.41'
+        kotlin_version = '1.2.50'
         androidx = '1.0.0-alpha3'
         constraint_layout = '1.1.2'
         arch_comp = '2.0.0-alpha1'
