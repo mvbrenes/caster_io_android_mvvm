@@ -10,7 +10,7 @@
             type="com.example.marco.tipcalculator.viewmodel.CalculatorViewModel" />
     </data>
 
-    <androidx.constraintlayout.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/calculation_inputs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -61,7 +61,7 @@
                 tools:ignore="Autofill" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.constraintlayout.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/calculation_outputs"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                 app:layout_constraintStart_toEndOf="@+id/tip_amount_label" />
 
 
-        </androidx.constraintlayout.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

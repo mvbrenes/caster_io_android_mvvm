@@ -30,6 +30,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildToolsVersion '28.0.0 rc2'
 }
 
 dependencies {
@@ -39,8 +40,9 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$androidx"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout"
     implementation "androidx.lifecycle:lifecycle-extensions:$arch_comp"
-    implementation "com.google.android.material:material:$androidx"
     implementation "androidx.legacy:legacy-support-core-ui:$androidx"
+    implementation "com.google.android.material:material:$androidx"
+
     kapt "androidx.databinding:databinding-compiler:$android_plugin"
 
     testImplementation "junit:junit:$junit"

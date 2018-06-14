@@ -4,7 +4,7 @@ buildscript {
     ext {
         kotlin_version = '1.2.41'
         androidx = '1.0.0-alpha3'
-        constraint_layout = '1.1.1'
+        constraint_layout = '1.1.2'
         arch_comp = '2.0.0-alpha1'
 
         junit = '4.12'
@@ -12,7 +12,7 @@ buildscript {
         junit_runner = '1.1.0-alpha3'
         espresso = '3.1.0-alpha3'
 
-        android_plugin = '3.2.0-alpha17'
+        android_plugin = '3.2.0-alpha18'
         compile_sdk = 28
         min_sdk = 19
         target_sdk = compile_sdk
@@ -24,7 +24,7 @@ buildscript {
         gradlePluginPortal()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:$android_plugin"
+        classpath group: 'com.android.tools.build', name: 'gradle', version: android_plugin
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "gradle.plugin.org.jlleitschuh.gradle:ktlint-gradle:4.0.0"
         // NOTE: Do not place your application dependencies here; they belong
