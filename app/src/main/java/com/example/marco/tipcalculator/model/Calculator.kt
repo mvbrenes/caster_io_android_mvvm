@@ -3,7 +3,7 @@ package com.example.marco.tipcalculator.model
 import androidx.lifecycle.LiveData
 import java.math.RoundingMode
 
-class Calculator(private val repository: TipCalculationRepository) {
+class Calculator(private val repository: TipCalculationRepository = TipCalculationRepository()) {
     fun calculateTip(checkAmount: Double, tipPct: Int): TipCalculation {
         val tipAmount = (checkAmount * (tipPct.toDouble() / 100.00)).toBigDecimal()
             .setScale(2, RoundingMode.HALF_UP)
