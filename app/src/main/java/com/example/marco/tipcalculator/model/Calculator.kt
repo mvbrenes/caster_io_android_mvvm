@@ -3,13 +3,17 @@ package com.example.marco.tipcalculator.model
 import androidx.lifecycle.LiveData
 import java.math.RoundingMode
 
-class Calculator(private val repository: TipCalculationRepository = TipCalculationRepository()) {
+class Calculator(val repository: TipCalculationRepository = TipCalculationRepository()) {
+
     fun calculateTip(checkAmount: Double, tipPct: Int): TipCalculation {
-        val tipAmount = (checkAmount * (tipPct.toDouble() / 100.00)).toBigDecimal()
+
+        val tipAmount = (checkAmount * (tipPct.toDouble() / 100.0))
+            .toBigDecimal()
             .setScale(2, RoundingMode.HALF_UP)
             .toDouble()
 
         val grandTotal = checkAmount + tipAmount
+
         return TipCalculation(
             checkAmount = checkAmount,
             tipPct = tipPct,
@@ -22,7 +26,11 @@ class Calculator(private val repository: TipCalculationRepository = TipCalculati
         repository.saveTipCalculation(tc)
     }
 
-    fun loadSaveTipCalculations(): LiveData<List<TipCalculation>> {
+    fun loadTipCalculationByLocationName(locationName: String): TipCalculation? {
+        return repository.loadTipCalculationByName(locationName)
+    }
+
+    fun loadSavedTipCalculations(): LiveData<List<TipCalculation>> {
         return repository.loadSavedTipCalculations()
     }
 }

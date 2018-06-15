@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel
 import com.example.marco.tipcalculator.BR
 
 abstract class ObservableViewModel(app: Application) : AndroidViewModel(app), Observable {
+
     @delegate:Transient
     private val mCallbacks: PropertyChangeRegistry by lazy { PropertyChangeRegistry() }
 

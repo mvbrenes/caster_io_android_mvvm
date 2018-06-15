@@ -14,6 +14,7 @@ import com.example.marco.tipcalculator.R
 
 class SaveDialogFragment : DialogFragment() {
 
+    val TAG = "SaveDialogFragment"
     interface Callback {
         fun onSaveTip(name: String)
     }
@@ -32,29 +33,36 @@ class SaveDialogFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate()")
+        Log.d(TAG, "OnCreate")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        Log.d(TAG, "onCreateView()")
+        Log.d(TAG, "OnCreateView")
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    override fun onDestroy() {
+        Log.d(TAG, "OnDestroy")
+        super.onDestroy()
+    }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        Log.d(TAG, "onCreateDialog()")
+        Log.d(TAG, "OnCreateDialog")
 
         val saveDialog = context?.let { ctx ->
-            val editText = EditText(ctx).apply {
-                id = viewId
-                hint = "Enter Location"
-            }
+
+            val editText = EditText(ctx)
+            editText.id = viewId
+            editText.hint = getString(R.string.save_hint)
 
             AlertDialog.Builder(ctx)
                 .setView(editText)
                 .setNegativeButton(R.string.action_cancel, null)
                 .setPositiveButton(R.string.action_save, { _, _ -> onSave(editText) })
                 .create()
+
         }
+
         return saveDialog!!
     }
 
@@ -66,7 +74,6 @@ class SaveDialogFragment : DialogFragment() {
     }
 
     companion object {
-        private val TAG = SaveDialogFragment::class.java.simpleName
         val viewId = View.generateViewId()
     }
 }
