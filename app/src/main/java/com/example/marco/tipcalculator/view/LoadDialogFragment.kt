@@ -1,5 +1,6 @@
 package com.example.marco.tipcalculator.view
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
@@ -46,6 +47,7 @@ class LoadDialogFragment : DialogFragment() {
         return dialog!!
     }
 
+    @SuppressLint("InflateParams")
     private fun createView(ctx: Context): View {
 
         val rv = LayoutInflater

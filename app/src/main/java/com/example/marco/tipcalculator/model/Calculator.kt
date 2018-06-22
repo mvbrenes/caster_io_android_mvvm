@@ -3,7 +3,7 @@ package com.example.marco.tipcalculator.model
 import androidx.lifecycle.LiveData
 import java.math.RoundingMode
 
-class Calculator(val repository: TipCalculationRepository = TipCalculationRepository()) {
+class Calculator(private val repository: TipCalculationRepository = TipCalculationRepository()) {
 
     fun calculateTip(checkAmount: Double, tipPct: Int): TipCalculation {
 

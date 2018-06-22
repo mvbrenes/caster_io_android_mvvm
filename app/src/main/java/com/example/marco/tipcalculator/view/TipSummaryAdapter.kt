@@ -37,7 +37,7 @@ class TipSummaryAdapter(val onItemSelected: (item: TipCalculationSummaryItem) ->
         holder.bind(tipCalculationSummaries[position])
     }
 
-    inner class TipSummaryViewHolder(val binding: SavedTipCalculationsListItemBinding) :
+    inner class TipSummaryViewHolder(private val binding: SavedTipCalculationsListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: TipCalculationSummaryItem) {

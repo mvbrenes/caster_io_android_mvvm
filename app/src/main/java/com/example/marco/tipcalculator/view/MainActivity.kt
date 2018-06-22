@@ -13,7 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity(), SaveDialogFragment.Callback, LoadDialogFragment.Callback {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onSaveTip(name: String) {
         binding.vm?.saveCurrentTip(name)

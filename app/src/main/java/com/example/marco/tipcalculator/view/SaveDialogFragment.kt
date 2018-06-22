@@ -13,8 +13,6 @@ import androidx.fragment.app.DialogFragment
 import com.example.marco.tipcalculator.R
 
 class SaveDialogFragment : DialogFragment() {
-
-    val TAG = "SaveDialogFragment"
     interface Callback {
         fun onSaveTip(name: String)
     }
@@ -58,7 +56,7 @@ class SaveDialogFragment : DialogFragment() {
             AlertDialog.Builder(ctx)
                 .setView(editText)
                 .setNegativeButton(R.string.action_cancel, null)
-                .setPositiveButton(R.string.action_save, { _, _ -> onSave(editText) })
+                .setPositiveButton(R.string.action_save) { _, _ -> onSave(editText) }
                 .create()
 
         }
@@ -74,6 +72,7 @@ class SaveDialogFragment : DialogFragment() {
     }
 
     companion object {
+        private var TAG = SaveDialogFragment::class.java.simpleName
         val viewId = View.generateViewId()
     }
 }

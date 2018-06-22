@@ -17,10 +17,12 @@ import org.mockito.MockitoAnnotations
 
 class CalculatorViewModelTest {
 
-    lateinit var calculatorViewModel: CalculatorViewModel
+    private lateinit var calculatorViewModel: CalculatorViewModel
     @Mock
+    private
     lateinit var mockCalculator: Calculator
     @Mock
+    private
     lateinit var application: Application
 
     @Before

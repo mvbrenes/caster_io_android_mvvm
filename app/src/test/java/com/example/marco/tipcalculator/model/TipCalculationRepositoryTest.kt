@@ -11,7 +11,7 @@ class TipCalculationRepositoryTest {
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
-    lateinit var repository: TipCalculationRepository
+    private lateinit var repository: TipCalculationRepository
 
     @Before
     fun setup() {

@@ -7,7 +7,7 @@ import com.example.marco.tipcalculator.R
 import com.example.marco.tipcalculator.model.Calculator
 import com.example.marco.tipcalculator.model.TipCalculation
 class CalculatorViewModel @JvmOverloads constructor(
-    app: Application, val calculator: Calculator = Calculator()
+    app: Application, private val calculator: Calculator = Calculator()
 ) : ObservableViewModel(app) {
 
     private var lastTipCalculated = TipCalculation()
@@ -16,9 +16,21 @@ class CalculatorViewModel @JvmOverloads constructor(
 
     var inputTipPercentage = ""
 
-    val outputCheckAmount get() = getApplication<Application>().getString(R.string.dollar_amount, lastTipCalculated.checkAmount)
-    val outputTipAmount get() = getApplication<Application>().getString(R.string.dollar_amount, lastTipCalculated.tipAmount)
-    val outputTotalDollarAmount get() = getApplication<Application>().getString(R.string.dollar_amount, lastTipCalculated.grandTotal)
+    val outputCheckAmount: String
+        get() = getApplication<Application>().getString(
+            R.string.dollar_amount,
+            lastTipCalculated.checkAmount
+        )
+    val outputTipAmount: String
+        get() = getApplication<Application>().getString(
+            R.string.dollar_amount,
+            lastTipCalculated.tipAmount
+        )
+    val outputTotalDollarAmount: String
+        get() = getApplication<Application>().getString(
+            R.string.dollar_amount,
+            lastTipCalculated.grandTotal
+        )
     val locationName get() = lastTipCalculated.locationName
 
     init {
@@ -37,14 +49,14 @@ class CalculatorViewModel @JvmOverloads constructor(
     }
 
     fun loadSavedTipCalculationSummaries(): LiveData<List<TipCalculationSummaryItem>> {
-        return Transformations.map(calculator.loadSavedTipCalculations(), { tipCalculationObjects ->
+        return Transformations.map(calculator.loadSavedTipCalculations()) { tipCalculationObjects ->
             tipCalculationObjects.map {
                 TipCalculationSummaryItem(
                     it.locationName,
                     getApplication<Application>().getString(R.string.dollar_amount, it.grandTotal)
                 )
             }
-        })
+        }
     }
 
     fun loadTipCalculation(name: String) {
