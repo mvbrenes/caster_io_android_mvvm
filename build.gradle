@@ -3,16 +3,16 @@
 buildscript {
     ext {
         kotlin_version = '1.2.50'
-        androidx = '1.0.0-alpha3'
+        androidx = '1.0.0-beta01'
         constraint_layout = '1.1.2'
-        arch_comp = '2.0.0-alpha1'
+        arch_comp = '2.0.0-beta01'
 
         junit = '4.12'
         mockito = '2.11.0'
         junit_runner = '1.1.0-alpha3'
         espresso = '3.1.0-alpha3'
 
-        android_plugin = '3.2.0-beta01'
+        android_plugin = '3.2.0-beta04'
         compile_sdk = 28
         min_sdk = 19
         target_sdk = compile_sdk
